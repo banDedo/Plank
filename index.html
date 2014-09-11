@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Plank by banDedo</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Plank</h1>
+        <h2>A lightweight logger written in Swift.</h2>
+        <a href="https://github.com/banDedo/Plank" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="plank" class="anchor" href="#plank"><span class="octicon octicon-link"></span></a>Plank</h1>
+
+<h2>
+<a name="what-is-plank" class="anchor" href="#what-is-plank"><span class="octicon octicon-link"></span></a>What is Plank?</h2>
+
+<p>Plank is a lightweight logging framework for the Swift programming language that allows gating of log messages as a function of build configuration.  Plank provides a hook to filter logs based on level.</p>
+
+<div class="highlight highlight-swift"><pre><span class="k">var</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">Plank</span><span class="p">(</span><span class="nl">tag</span><span class="p">:</span> <span class="s">"Tag"</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="p">.</span><span class="n">thresholdLevel</span> <span class="o">=</span> <span class="p">.</span><span class="n">Warning</span>
+
+<span class="n">logger</span><span class="p">.</span><span class="n">logWarning</span><span class="p">(</span><span class="s">"This log should appear because it is at the minimum threshold and no visible tags are defined."</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">logInfo</span><span class="p">(</span><span class="s">"This log shouldn't appear because it is set below minimum threshold."</span><span class="p">)</span>
+</pre></div>
+
+<p>Set the desired threshold log level, by default it is set to .Warn.  With this example all logs will be recorded.</p>
+
+<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">thresholdLevel</span> <span class="o">=</span> <span class="p">.</span><span class="n">Warning</span>
+</pre></div>
+
+<p>Turn off all logs by setting the enabled property to false:</p>
+
+<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="nb">false</span>
+</pre></div>
+
+<p>All loggers are asynchronous by default, but one can change to synchronous by setting this aptly named property:</p>
+
+<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">synchronous</span> <span class="o">=</span> <span class="nb">true</span>
+</pre></div>
+
+<p>One can execute code after asynchronous logs by attaching a trailing closure.</p>
+
+<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">logError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do something on logging queue immediately after log is written.</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong>Note:</strong> All logs are written on a serial queue.</p>
+
+<p>Set the desired format of log output by setting the formatter property:</p>
+
+<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">formatter</span> <span class="o">=</span> <span class="p">{</span> <span class="p">(</span><span class="nl">message</span><span class="p">:</span> <span class="bp">NSString</span><span class="p">,</span> <span class="nl">tag</span><span class="p">:</span> <span class="bp">NSString</span><span class="p">,</span> <span class="nl">levelString</span><span class="p">:</span> <span class="bp">NSString</span><span class="p">,</span> <span class="nl">dateFormatter</span><span class="p">:</span> <span class="bp">NSDateFormatter</span><span class="p">,</span>  <span class="nl">queue</span><span class="p">:</span> <span class="kt">dispatch_queue_t</span><span class="p">)</span> <span class="k">in</span>
+    <span class="k">return</span> <span class="s">"\(message)\(tag)\(levelString)"</span>
+<span class="p">}</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">logError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+
+<p>There are built in notifications broadcast before and after every log message which attached the original message and the formatted body to the userInfo:</p>
+
+<div class="highlight highlight-swift"><pre><span class="c1">/// The name of the notification is fired on the serial logging queue before log is written.</span>
+<span class="n">public</span> <span class="k">let</span> <span class="n">PlankWillLogNotification</span> <span class="o">=</span> <span class="s">"PlankWillLogNotification"</span>
+
+<span class="c1">/// The name of the notification is fired on the serial logging queue after log is written.</span>
+<span class="n">public</span> <span class="k">let</span> <span class="n">PlankDidLogNotification</span> <span class="o">=</span> <span class="s">"PlankDidLogNotification"</span>
+
+<span class="c1">/// The name of the key for the value holding the unaltered log message in the notification userInfo dictionary.</span>
+<span class="n">public</span> <span class="k">let</span> <span class="n">PlankLogMessageKey</span> <span class="o">=</span> <span class="s">"PlankLogMessageKey"</span>
+
+<span class="c1">/// The name of the key for the value holding the formatted log message in the notification userInfo dictionary.</span>
+<span class="n">public</span> <span class="k">let</span> <span class="n">PlankLogBodyKey</span> <span class="o">=</span> <span class="s">"PlankLogBodyKey"</span>
+</pre></div>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/banDedo/Plank/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/banDedo/Plank/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/banDedo/Plank"></a> is maintained by <a href="https://github.com/banDedo">banDedo</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
