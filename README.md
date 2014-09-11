@@ -38,7 +38,7 @@ logger.logError(message) {
 
 Set the desired format of log output by setting the formatter property:
 ```swift
-logger.formatter = { (message: NSString, tag: NSString, levelString: NSString, dateFormatter: NSDateFormatter,  queue: dispatch_queue_t) in
+logger.formatter = { (message: String, tag: String, levelString: String, function: String, file: String, line: Int) in
     return "\(message)\(tag)\(levelString)"
 }
 logger.logError(message)
