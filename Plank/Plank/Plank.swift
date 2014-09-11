@@ -21,16 +21,15 @@ public let PlankLogMessageKey = "PlankLogMessageKey"
 public let PlankLogBodyKey = "PlankLogBodyKey"
 
 @objc protocol Logger {
-    var formatter: ((message: NSString, tag: NSString, levelString: NSString, dateFormatter: NSDateFormatter,  queue: dispatch_queue_t) -> NSString)? {get set}
-
-    func logError(message: String?);
-    func logWarning(message: String?);
-    func logInfo(message: String?);
-    func logVerbose(message: String?);
-    func logError(message: String?, completion: () -> ());
-    func logWarning(message: String?, completion: () -> ());
-    func logInfo(message: String?, completion: () -> ());
-    func logVerbose(message: String?, completion: () -> ());
+    optional func logError(message: String?)
+    optional func logWarning(message: String?)
+    optional func logInfo(message: String?)
+    optional func logVerbose(message: String?)
+    
+    optional func logError(message: String?, _ completion: () -> ())
+    optional func logWarning(message: String?, _ completion: () -> ())
+    optional func logInfo(message: String?, _ completion: () -> ())
+    optional func logVerbose(message: String?, _ completion: () -> ())
 }
 
 class Plank: NSObject, Logger {
@@ -46,7 +45,7 @@ class Plank: NSObject, Logger {
     var synchronous: Bool = false
     
     /// Assignable closure that allows caller to set the format of logged messages.  The closure should return the formatted string that one wishes to log based on the passed parameters.
-    var formatter: ((message: NSString, tag: NSString, levelString: NSString, dateFormatter: NSDateFormatter,  queue: dispatch_queue_t) -> NSString)?
+    var formatter: ((message: String, tag: String, levelString: String, function: String, file: String, line: Int) -> String)?
 
     // MARK:- Cleanup/Initialization
 
@@ -95,49 +94,13 @@ class Plank: NSObject, Logger {
     // MARK:- Public logging
     
     /**
-    Log message at the error level
-    
-    :param: message Message to log
-    */
-    func logError(message: String?) {
-        log(message, .Error)
-    }
-    
-    /**
-    Log message at the warn level
-    
-    :param: message Message to log
-    */
-    func logWarning(message: String?) {
-        log(message, .Warning)
-    }
-    
-    /**
-    Log message at the info level
-    
-    :param: message Message to log
-    */
-    func logInfo(message: String?) {
-        log(message, .Info)
-    }
-    
-    /**
-    Log message at the verbose level
-    
-    :param: message Message to log
-    */
-    func logVerbose(message: String?) {
-        log(message, .Verbose)
-    }
-
-    /**
        Log message at the error level
     
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    func logError(message: String?, completion: () -> ()) {
-        log(message, .Error, completion)
+    func logError(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+        log(message, .Error, completion, function, file, line)
     }
     
     /**
@@ -146,8 +109,8 @@ class Plank: NSObject, Logger {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    func logWarning(message: String?, completion: () -> ()) {
-        log(message, .Warning, completion)
+    func logWarning(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+        log(message, .Warning, completion, function, file, line)
     }
     
     /**
@@ -156,8 +119,8 @@ class Plank: NSObject, Logger {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    func logInfo(message: String?, completion: () -> ()) {
-        log(message, .Info, completion)
+    func logInfo(message: String?, _ completion: (() -> ())? = nil, function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+        log(message, .Info, completion, function, file, line)
     }
     
     /**
@@ -166,8 +129,8 @@ class Plank: NSObject, Logger {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    func logVerbose(message: String?, completion: () -> ()) {
-        log(message, .Verbose, completion)
+    func logVerbose(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+        log(message, .Verbose, completion, function, file, line)
     }
     
     // MARK:- Private properties
@@ -177,14 +140,14 @@ class Plank: NSObject, Logger {
     
     // MARK:- Private logging
 
-    private func log(message: String?, _ level: Level, _ completion: (() -> ())? = nil) {
+    private func log(message: String?, _ level: Level, _ completion: (() -> ())? = nil, _ function: String, _ file: String, _ line: Int) {
         if !self.shouldLog(tag, level) {
             return
         }
 
         var handler: (Void) -> Void = {
             let formattedMessage = message ?? "(null)"
-            let logText = self.logText(formattedMessage, level)
+            let logText = self.logText(formattedMessage, level, function, file, line)
             let userInfo = [ PlankLogMessageKey: formattedMessage, PlankLogBodyKey: logText ]
 
             NSNotificationCenter.defaultCenter().postNotificationName(PlankWillLogNotification, object: self, userInfo: userInfo)
@@ -196,7 +159,7 @@ class Plank: NSObject, Logger {
             }
         }
         
-        if (synchronous) {
+        if synchronous {
             dispatch_sync(queue) {
                 handler()
             }
@@ -207,12 +170,16 @@ class Plank: NSObject, Logger {
         }
     }
 
-    private func logText(message: String, _ level: Level) -> String {
+    private func logText(message: String, _ level: Level, _ function: String, _ file: String, _ line: Int) -> String {
         if formatter != nil {
-            return formatter!(message: message, tag: tag, levelString: level.description, dateFormatter: Shared.dateFormatter, queue: Shared.queue)
+            return formatter!(message: message, tag: tag, levelString: level.description, function: function, file: file, line: line)
         }
         
-        return "\(Shared.dateFormatter.stringFromDate(NSDate())) [Plank|\(Shared.bundleExecutableName)] [\(tag)|\(level)]\n\(message)\n"
+        var formattedFileName = (file as NSString).componentsSeparatedByString("/").last as? String
+        if formattedFileName == nil {
+            formattedFileName = file
+        }
+        return "\(Shared.dateFormatter.stringFromDate(NSDate())) [Plank|\(Shared.bundleExecutableName)] [\(formattedFileName):\(line.description)] \(function) [\(tag)|\(level)]\n\(message)\n"
     }
     
     private func shouldLog(tag: String?, _ level: Level) -> Bool {
