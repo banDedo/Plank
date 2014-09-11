@@ -19,7 +19,7 @@ class PlankSpec: QuickSpec {
     private func expectNotificationMessage(message: String, synchronously: Bool) {
         var expectation1 = expect(self.willLogNotificationListener!.userInfoElement(0, key: PlankLogMessageKey) as? String)
         var expectation2 = expect(self.didLogNotificationListener!.userInfoElement(0, key: PlankLogMessageKey) as? String)
-        if (synchronously) {
+        if synchronously {
             expectation1.to(equal(message))
             expectation2.to(equal(message))
         } else {
@@ -31,7 +31,7 @@ class PlankSpec: QuickSpec {
     private func expectNotificationBody(bodyPart: String, synchronously: Bool) {
         var expectation1 = expect((self.willLogNotificationListener!.userInfoElement(0, key: PlankLogBodyKey) as? String) ?? "")
         var expectation2 = expect((self.didLogNotificationListener!.userInfoElement(0, key: PlankLogBodyKey) as? String) ?? "")
-        if (synchronously) {
+        if synchronously {
             expectation1.to(contain(bodyPart))
             expectation2.to(contain(bodyPart))
         } else {
@@ -55,7 +55,7 @@ class PlankSpec: QuickSpec {
             let message = "Test"
             let tag = "Tag"
             var logger = Plank(tag: tag)
-            
+ 
             beforeEach {
                 logger = Plank(tag: tag)
                 self.willLogNotificationListener = NotificationListener(name: PlankWillLogNotification, object: logger)
@@ -140,7 +140,7 @@ class PlankSpec: QuickSpec {
             }
             
             it("will obey formatting") {
-                logger.formatter = { (message: NSString, tag: NSString, levelString: NSString, dateFormatter: NSDateFormatter,  queue: dispatch_queue_t) in
+                logger.formatter = { (message: String, tag: String, levelString: String, function: String, file: String, line: Int) in
                     return "\(message)\(tag)\(levelString)"
                 }
                 logger.logError(message)
