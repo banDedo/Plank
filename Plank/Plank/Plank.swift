@@ -20,18 +20,6 @@ public let PlankLogMessageKey = "PlankLogMessageKey"
 /// The name of the key for the value holding the formatted log message in the notification userInfo dictionary.
 public let PlankLogBodyKey = "PlankLogBodyKey"
 
-@objc protocol Logger {
-    optional func logError(message: String?)
-    optional func logWarning(message: String?)
-    optional func logInfo(message: String?)
-    optional func logVerbose(message: String?)
-    
-    optional func logError(message: String?, _ completion: () -> ())
-    optional func logWarning(message: String?, _ completion: () -> ())
-    optional func logInfo(message: String?, _ completion: () -> ())
-    optional func logVerbose(message: String?, _ completion: () -> ())
-}
-
 class Plank: NSObject, Logger {
     // MARK:- Public properties
     
