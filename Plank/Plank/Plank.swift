@@ -20,7 +20,7 @@ public let PlankLogMessageKey = "PlankLogMessageKey"
 /// The name of the key for the value holding the formatted log message in the notification userInfo dictionary.
 public let PlankLogBodyKey = "PlankLogBodyKey"
 
-class Plank: NSObject, Logger {
+class Plank: NSObject {
     // MARK:- Public properties
     
     /// Toggle to enable/disable logging.
