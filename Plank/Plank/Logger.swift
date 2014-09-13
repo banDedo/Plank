@@ -1,5 +1,5 @@
 //
-//  Plank.swift
+//  Logger.swift
 //  Plank
 //
 //  Created by Patrick Hogan on 6/7/14.
@@ -20,7 +20,7 @@ public let PlankLogMessageKey = "PlankLogMessageKey"
 /// The name of the key for the value holding the formatted log message in the notification userInfo dictionary.
 public let PlankLogBodyKey = "PlankLogBodyKey"
 
-class Plank: NSObject {
+class Logger: NSObject {
     // MARK:- Public properties
     
     /// Toggle to enable/disable logging.
@@ -182,8 +182,8 @@ class Plank: NSObject {
 
     private struct Shared {
         static let bundleExecutableName: NSString = (NSBundle.mainBundle().infoDictionary[kCFBundleExecutableKey] ?? "Unknown") as NSString
-        static let queue = dispatch_queue_create(Plank.queueName().UTF8String, DISPATCH_QUEUE_SERIAL)
-        static let dateFormatter: NSDateFormatter = Plank.dateFormatter();
+        static let queue = dispatch_queue_create(Logger.queueName().UTF8String, DISPATCH_QUEUE_SERIAL)
+        static let dateFormatter: NSDateFormatter = Logger.dateFormatter();
     }
 
     private class func queueName() -> NSString {
