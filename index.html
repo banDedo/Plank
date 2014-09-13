@@ -36,7 +36,7 @@
 
 <p>Plank is a lightweight logging framework for the Swift programming language that allows gating of log messages as a function of build configuration.  Plank provides a hook to filter logs based on level.</p>
 
-<div class="highlight highlight-swift"><pre><span class="k">var</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">Plank</span><span class="p">(</span><span class="nl">tag</span><span class="p">:</span> <span class="s">"Tag"</span><span class="p">)</span>
+<div class="highlight highlight-swift"><pre><span class="k">let</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">Plank</span><span class="p">.</span><span class="n">Logger</span><span class="p">(</span><span class="nl">tag</span><span class="p">:</span> <span class="s">"Tag"</span><span class="p">)</span>
 
 <span class="n">logger</span><span class="p">.</span><span class="n">thresholdLevel</span> <span class="o">=</span> <span class="p">.</span><span class="n">Warning</span>
 
@@ -70,7 +70,7 @@
 
 <p>Set the desired format of log output by setting the formatter property:</p>
 
-<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">formatter</span> <span class="o">=</span> <span class="p">{</span> <span class="p">(</span><span class="nl">message</span><span class="p">:</span> <span class="bp">NSString</span><span class="p">,</span> <span class="nl">tag</span><span class="p">:</span> <span class="bp">NSString</span><span class="p">,</span> <span class="nl">levelString</span><span class="p">:</span> <span class="bp">NSString</span><span class="p">,</span> <span class="nl">dateFormatter</span><span class="p">:</span> <span class="bp">NSDateFormatter</span><span class="p">,</span>  <span class="nl">queue</span><span class="p">:</span> <span class="kt">dispatch_queue_t</span><span class="p">)</span> <span class="k">in</span>
+<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">formatter</span> <span class="o">=</span> <span class="p">{</span> <span class="p">(</span><span class="nl">message</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">tag</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">levelString</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">function</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">file</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">line</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="k">in</span>
     <span class="k">return</span> <span class="s">"\(message)\(tag)\(levelString)"</span>
 <span class="p">}</span>
 <span class="n">logger</span><span class="p">.</span><span class="n">logError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
