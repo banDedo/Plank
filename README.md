@@ -5,7 +5,7 @@ What is Plank?
 --------------
 Plank is a lightweight logging framework for the Swift programming language that allows gating of log messages as a function of build configuration.  Plank provides a hook to filter logs based on level.
 ```swift
-var logger = Plank(tag: "Tag")
+let logger = Plank.Logger(tag: "Tag")
 
 logger.thresholdLevel = .Warning
 

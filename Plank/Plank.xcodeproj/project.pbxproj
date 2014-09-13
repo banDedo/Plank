@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7177063719BD083200EAFF06 /* Plank.h in Headers */ = {isa = PBXBuildFile; fileRef = 7177063619BD083200EAFF06 /* Plank.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7177065419BD084800EAFF06 /* Plank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7177065319BD084800EAFF06 /* Plank.swift */; };
-		7177065919BD092000EAFF06 /* Plank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7177065319BD084800EAFF06 /* Plank.swift */; };
-		7191F8D419BD0A9F00097B56 /* PlankSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7191F8D319BD0A9F00097B56 /* PlankSpec.swift */; };
+		7177065419BD084800EAFF06 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7177065319BD084800EAFF06 /* Logger.swift */; };
+		7177065919BD092000EAFF06 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7177065319BD084800EAFF06 /* Logger.swift */; };
+		7191F8D419BD0A9F00097B56 /* LoggerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7191F8D319BD0A9F00097B56 /* LoggerSpec.swift */; };
 		71B5BC6019C012480098B335 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B5BC5F19C012480098B335 /* Nimble.framework */; };
 		71B5BC6219C0124D0098B335 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B5BC6119C0124D0098B335 /* Quick.framework */; };
 		71B5BC6519C013A60098B335 /* NotificationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5BC6419C013A60098B335 /* NotificationListener.swift */; };
@@ -22,8 +22,8 @@
 		7177063619BD083200EAFF06 /* Plank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plank.h; sourceTree = "<group>"; };
 		7177063C19BD083200EAFF06 /* PlankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7177063F19BD083200EAFF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7177065319BD084800EAFF06 /* Plank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plank.swift; sourceTree = "<group>"; };
-		7191F8D319BD0A9F00097B56 /* PlankSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlankSpec.swift; sourceTree = "<group>"; };
+		7177065319BD084800EAFF06 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		7191F8D319BD0A9F00097B56 /* LoggerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerSpec.swift; sourceTree = "<group>"; };
 		71B5BC5F19C012480098B335 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		71B5BC6119C0124D0098B335 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../Quick/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
 		71B5BC6419C013A60098B335 /* NotificationListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationListener.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				7177063619BD083200EAFF06 /* Plank.h */,
-				7177065319BD084800EAFF06 /* Plank.swift */,
+				7177065319BD084800EAFF06 /* Logger.swift */,
 				7177063419BD083200EAFF06 /* Supporting Files */,
 			);
 			path = Plank;
@@ -89,7 +89,7 @@
 		7177063D19BD083200EAFF06 /* PlankTests */ = {
 			isa = PBXGroup;
 			children = (
-				7191F8D319BD0A9F00097B56 /* PlankSpec.swift */,
+				7191F8D319BD0A9F00097B56 /* LoggerSpec.swift */,
 				71B5BC6319C013800098B335 /* NotificationListener */,
 				7177063E19BD083200EAFF06 /* Supporting Files */,
 			);
@@ -227,7 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7177065419BD084800EAFF06 /* Plank.swift in Sources */,
+				7177065419BD084800EAFF06 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,8 +235,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7177065919BD092000EAFF06 /* Plank.swift in Sources */,
-				7191F8D419BD0A9F00097B56 /* PlankSpec.swift in Sources */,
+				7177065919BD092000EAFF06 /* Logger.swift in Sources */,
+				7191F8D419BD0A9F00097B56 /* LoggerSpec.swift in Sources */,
 				71B5BC6519C013A60098B335 /* NotificationListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

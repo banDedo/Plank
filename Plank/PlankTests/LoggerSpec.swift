@@ -1,5 +1,5 @@
 //
-//  PlankSpec.swift
+//  LoggerSpec.swift
 //  Plank
 //
 //  Created by Patrick Hogan on 9/7/14.
@@ -12,7 +12,7 @@ import Nimble
 import Foundation
 import XCTest
 
-class PlankSpec: QuickSpec {
+class LoggerSpec: QuickSpec {
     var willLogNotificationListener: NotificationListener?
     var didLogNotificationListener: NotificationListener?
 
@@ -54,10 +54,10 @@ class PlankSpec: QuickSpec {
         describe("a logger") {
             let message = "Test"
             let tag = "Tag"
-            var logger = Plank(tag: tag)
+            var logger = Logger(tag: tag)
  
             beforeEach {
-                logger = Plank(tag: tag)
+                logger = Logger(tag: tag)
                 self.willLogNotificationListener = NotificationListener(name: PlankWillLogNotification, object: logger)
                 self.didLogNotificationListener = NotificationListener(name: PlankDidLogNotification, object: logger)
             }
@@ -145,7 +145,7 @@ class PlankSpec: QuickSpec {
                 }
                 logger.logError(message)
                 
-                self.expectNotificationBody("\(message)\(tag)\(Plank.Level.Error.description)", synchronously: false)
+                self.expectNotificationBody("\(message)\(tag)\(Logger.Level.Error.description)", synchronously: false)
             }
             
             it("post notifications indicating that it will and did log messages, including message in body") {
