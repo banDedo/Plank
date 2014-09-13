@@ -7,116 +7,118 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7177063719BD083200EAFF06 /* Plank.h in Headers */ = {isa = PBXBuildFile; fileRef = 7177063619BD083200EAFF06 /* Plank.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7177065419BD084800EAFF06 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7177065319BD084800EAFF06 /* Logger.swift */; };
-		7177065919BD092000EAFF06 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7177065319BD084800EAFF06 /* Logger.swift */; };
-		7191F8D419BD0A9F00097B56 /* LoggerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7191F8D319BD0A9F00097B56 /* LoggerSpec.swift */; };
-		71B5BC6019C012480098B335 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B5BC5F19C012480098B335 /* Nimble.framework */; };
-		71B5BC6219C0124D0098B335 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B5BC6119C0124D0098B335 /* Quick.framework */; };
-		71B5BC6519C013A60098B335 /* NotificationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B5BC6419C013A60098B335 /* NotificationListener.swift */; };
+		71CE165C19C4FBD2006EBC8F /* Plank.h in Headers */ = {isa = PBXBuildFile; fileRef = 71CE165B19C4FBD2006EBC8F /* Plank.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71CE167119C4FBF1006EBC8F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE167019C4FBF1006EBC8F /* Logger.swift */; };
+		71CE167219C4FBF1006EBC8F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE167019C4FBF1006EBC8F /* Logger.swift */; };
+		71CE167419C4FBFA006EBC8F /* LoggerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE167319C4FBFA006EBC8F /* LoggerSpec.swift */; };
+		71CE167519C4FC05006EBC8F /* Plank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CE165619C4FBD2006EBC8F /* Plank.framework */; };
+		71CE167719C4FC09006EBC8F /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CE167619C4FC09006EBC8F /* Nimble.framework */; };
+		71CE167919C4FC0C006EBC8F /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CE167819C4FC0C006EBC8F /* Quick.framework */; };
+		71CE167D19C4FC6A006EBC8F /* NotificationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE167C19C4FC6A006EBC8F /* NotificationListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7177063119BD083200EAFF06 /* Plank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7177063519BD083200EAFF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7177063619BD083200EAFF06 /* Plank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plank.h; sourceTree = "<group>"; };
-		7177063C19BD083200EAFF06 /* PlankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7177063F19BD083200EAFF06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7177065319BD084800EAFF06 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		7191F8D319BD0A9F00097B56 /* LoggerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerSpec.swift; sourceTree = "<group>"; };
-		71B5BC5F19C012480098B335 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
-		71B5BC6119C0124D0098B335 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../Quick/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
-		71B5BC6419C013A60098B335 /* NotificationListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationListener.swift; sourceTree = "<group>"; };
+		71CE165619C4FBD2006EBC8F /* Plank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71CE165A19C4FBD2006EBC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71CE165B19C4FBD2006EBC8F /* Plank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plank.h; sourceTree = "<group>"; };
+		71CE166119C4FBD2006EBC8F /* PlankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71CE166419C4FBD2006EBC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71CE167019C4FBF1006EBC8F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		71CE167319C4FBFA006EBC8F /* LoggerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerSpec.swift; sourceTree = "<group>"; };
+		71CE167619C4FC09006EBC8F /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		71CE167819C4FC0C006EBC8F /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Plank-euwrhosgbkabrxczkxquakynfklc/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
+		71CE167C19C4FC6A006EBC8F /* NotificationListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7177062D19BD083200EAFF06 /* Frameworks */ = {
+		71CE165219C4FBD2006EBC8F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7177063919BD083200EAFF06 /* Frameworks */ = {
+		71CE165E19C4FBD2006EBC8F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71B5BC6219C0124D0098B335 /* Quick.framework in Frameworks */,
-				71B5BC6019C012480098B335 /* Nimble.framework in Frameworks */,
+				71CE167519C4FC05006EBC8F /* Plank.framework in Frameworks */,
+				71CE167919C4FC0C006EBC8F /* Quick.framework in Frameworks */,
+				71CE167719C4FC09006EBC8F /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7177062719BD083200EAFF06 = {
+		71CE164C19C4FBD2006EBC8F = {
 			isa = PBXGroup;
 			children = (
-				7177063319BD083200EAFF06 /* Plank */,
-				7177063D19BD083200EAFF06 /* PlankTests */,
-				7191F8DA19BD0D4000097B56 /* Frameworks */,
-				7177063219BD083200EAFF06 /* Products */,
+				71CE165819C4FBD2006EBC8F /* Plank */,
+				71CE166219C4FBD2006EBC8F /* PlankTests */,
+				71CE167A19C4FC13006EBC8F /* Frameworks */,
+				71CE165719C4FBD2006EBC8F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		7177063219BD083200EAFF06 /* Products */ = {
+		71CE165719C4FBD2006EBC8F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7177063119BD083200EAFF06 /* Plank.framework */,
-				7177063C19BD083200EAFF06 /* PlankTests.xctest */,
+				71CE165619C4FBD2006EBC8F /* Plank.framework */,
+				71CE166119C4FBD2006EBC8F /* PlankTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7177063319BD083200EAFF06 /* Plank */ = {
+		71CE165819C4FBD2006EBC8F /* Plank */ = {
 			isa = PBXGroup;
 			children = (
-				7177063619BD083200EAFF06 /* Plank.h */,
-				7177065319BD084800EAFF06 /* Logger.swift */,
-				7177063419BD083200EAFF06 /* Supporting Files */,
+				71CE165B19C4FBD2006EBC8F /* Plank.h */,
+				71CE167019C4FBF1006EBC8F /* Logger.swift */,
+				71CE165919C4FBD2006EBC8F /* Supporting Files */,
 			);
 			path = Plank;
 			sourceTree = "<group>";
 		};
-		7177063419BD083200EAFF06 /* Supporting Files */ = {
+		71CE165919C4FBD2006EBC8F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7177063519BD083200EAFF06 /* Info.plist */,
+				71CE165A19C4FBD2006EBC8F /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7177063D19BD083200EAFF06 /* PlankTests */ = {
+		71CE166219C4FBD2006EBC8F /* PlankTests */ = {
 			isa = PBXGroup;
 			children = (
-				7191F8D319BD0A9F00097B56 /* LoggerSpec.swift */,
-				71B5BC6319C013800098B335 /* NotificationListener */,
-				7177063E19BD083200EAFF06 /* Supporting Files */,
+				71CE167319C4FBFA006EBC8F /* LoggerSpec.swift */,
+				71CE167B19C4FC57006EBC8F /* NotificationListener */,
+				71CE166319C4FBD2006EBC8F /* Supporting Files */,
 			);
 			path = PlankTests;
 			sourceTree = "<group>";
 		};
-		7177063E19BD083200EAFF06 /* Supporting Files */ = {
+		71CE166319C4FBD2006EBC8F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7177063F19BD083200EAFF06 /* Info.plist */,
+				71CE166419C4FBD2006EBC8F /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7191F8DA19BD0D4000097B56 /* Frameworks */ = {
+		71CE167A19C4FC13006EBC8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71B5BC6119C0124D0098B335 /* Quick.framework */,
-				71B5BC5F19C012480098B335 /* Nimble.framework */,
+				71CE167819C4FC0C006EBC8F /* Quick.framework */,
+				71CE167619C4FC09006EBC8F /* Nimble.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		71B5BC6319C013800098B335 /* NotificationListener */ = {
+		71CE167B19C4FC57006EBC8F /* NotificationListener */ = {
 			isa = PBXGroup;
 			children = (
-				71B5BC6419C013A60098B335 /* NotificationListener.swift */,
+				71CE167C19C4FC6A006EBC8F /* NotificationListener.swift */,
 			);
 			name = NotificationListener;
 			sourceTree = "<group>";
@@ -124,25 +126,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		7177062E19BD083200EAFF06 /* Headers */ = {
+		71CE165319C4FBD2006EBC8F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7177063719BD083200EAFF06 /* Plank.h in Headers */,
+				71CE165C19C4FBD2006EBC8F /* Plank.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7177063019BD083200EAFF06 /* Plank */ = {
+		71CE165519C4FBD2006EBC8F /* Plank */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7177064419BD083200EAFF06 /* Build configuration list for PBXNativeTarget "Plank" */;
+			buildConfigurationList = 71CE166919C4FBD2006EBC8F /* Build configuration list for PBXNativeTarget "Plank" */;
 			buildPhases = (
-				7177062C19BD083200EAFF06 /* Sources */,
-				7177062D19BD083200EAFF06 /* Frameworks */,
-				7177062E19BD083200EAFF06 /* Headers */,
-				7177062F19BD083200EAFF06 /* Resources */,
+				71CE165119C4FBD2006EBC8F /* Sources */,
+				71CE165219C4FBD2006EBC8F /* Frameworks */,
+				71CE165319C4FBD2006EBC8F /* Headers */,
+				71CE165419C4FBD2006EBC8F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -150,16 +152,16 @@
 			);
 			name = Plank;
 			productName = Plank;
-			productReference = 7177063119BD083200EAFF06 /* Plank.framework */;
+			productReference = 71CE165619C4FBD2006EBC8F /* Plank.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7177063B19BD083200EAFF06 /* PlankTests */ = {
+		71CE166019C4FBD2006EBC8F /* PlankTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7177064719BD083200EAFF06 /* Build configuration list for PBXNativeTarget "PlankTests" */;
+			buildConfigurationList = 71CE166C19C4FBD2006EBC8F /* Build configuration list for PBXNativeTarget "PlankTests" */;
 			buildPhases = (
-				7177063819BD083200EAFF06 /* Sources */,
-				7177063919BD083200EAFF06 /* Frameworks */,
-				7177063A19BD083200EAFF06 /* Resources */,
+				71CE165D19C4FBD2006EBC8F /* Sources */,
+				71CE165E19C4FBD2006EBC8F /* Frameworks */,
+				71CE165F19C4FBD2006EBC8F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -167,53 +169,53 @@
 			);
 			name = PlankTests;
 			productName = PlankTests;
-			productReference = 7177063C19BD083200EAFF06 /* PlankTests.xctest */;
+			productReference = 71CE166119C4FBD2006EBC8F /* PlankTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7177062819BD083200EAFF06 /* Project object */ = {
+		71CE164D19C4FBD2006EBC8F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = bandedo;
 				TargetAttributes = {
-					7177063019BD083200EAFF06 = {
+					71CE165519C4FBD2006EBC8F = {
 						CreatedOnToolsVersion = 6.0;
 					};
-					7177063B19BD083200EAFF06 = {
+					71CE166019C4FBD2006EBC8F = {
 						CreatedOnToolsVersion = 6.0;
 					};
 				};
 			};
-			buildConfigurationList = 7177062B19BD083200EAFF06 /* Build configuration list for PBXProject "Plank" */;
+			buildConfigurationList = 71CE165019C4FBD2006EBC8F /* Build configuration list for PBXProject "Plank" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 7177062719BD083200EAFF06;
-			productRefGroup = 7177063219BD083200EAFF06 /* Products */;
+			mainGroup = 71CE164C19C4FBD2006EBC8F;
+			productRefGroup = 71CE165719C4FBD2006EBC8F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7177063019BD083200EAFF06 /* Plank */,
-				7177063B19BD083200EAFF06 /* PlankTests */,
+				71CE165519C4FBD2006EBC8F /* Plank */,
+				71CE166019C4FBD2006EBC8F /* PlankTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7177062F19BD083200EAFF06 /* Resources */ = {
+		71CE165419C4FBD2006EBC8F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7177063A19BD083200EAFF06 /* Resources */ = {
+		71CE165F19C4FBD2006EBC8F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -223,28 +225,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7177062C19BD083200EAFF06 /* Sources */ = {
+		71CE165119C4FBD2006EBC8F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7177065419BD084800EAFF06 /* Logger.swift in Sources */,
+				71CE167119C4FBF1006EBC8F /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7177063819BD083200EAFF06 /* Sources */ = {
+		71CE165D19C4FBD2006EBC8F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7177065919BD092000EAFF06 /* Logger.swift in Sources */,
-				7191F8D419BD0A9F00097B56 /* LoggerSpec.swift in Sources */,
-				71B5BC6519C013A60098B335 /* NotificationListener.swift in Sources */,
+				71CE167219C4FBF1006EBC8F /* Logger.swift in Sources */,
+				71CE167419C4FBFA006EBC8F /* LoggerSpec.swift in Sources */,
+				71CE167D19C4FC6A006EBC8F /* NotificationListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		7177064219BD083200EAFF06 /* Debug */ = {
+		71CE166719C4FBD2006EBC8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -290,7 +292,7 @@
 			};
 			name = Debug;
 		};
-		7177064319BD083200EAFF06 /* Release */ = {
+		71CE166819C4FBD2006EBC8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -329,7 +331,7 @@
 			};
 			name = Release;
 		};
-		7177064519BD083200EAFF06 /* Debug */ = {
+		71CE166A19C4FBD2006EBC8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -346,7 +348,7 @@
 			};
 			name = Debug;
 		};
-		7177064619BD083200EAFF06 /* Release */ = {
+		71CE166B19C4FBD2006EBC8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -362,12 +364,14 @@
 			};
 			name = Release;
 		};
-		7177064819BD083200EAFF06 /* Debug */ = {
+		71CE166D19C4FBD2006EBC8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"/Users/bandedo/Software/BanDedo/Plank/Nimble/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Plank-euwrhosgbkabrxczkxquakynfklc/Build/Products/Debug",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -379,12 +383,14 @@
 			};
 			name = Debug;
 		};
-		7177064919BD083200EAFF06 /* Release */ = {
+		71CE166E19C4FBD2006EBC8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"/Users/bandedo/Software/BanDedo/Plank/Nimble/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Plank-euwrhosgbkabrxczkxquakynfklc/Build/Products/Debug",
 				);
 				INFOPLIST_FILE = PlankTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -395,34 +401,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7177062B19BD083200EAFF06 /* Build configuration list for PBXProject "Plank" */ = {
+		71CE165019C4FBD2006EBC8F /* Build configuration list for PBXProject "Plank" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7177064219BD083200EAFF06 /* Debug */,
-				7177064319BD083200EAFF06 /* Release */,
+				71CE166719C4FBD2006EBC8F /* Debug */,
+				71CE166819C4FBD2006EBC8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7177064419BD083200EAFF06 /* Build configuration list for PBXNativeTarget "Plank" */ = {
+		71CE166919C4FBD2006EBC8F /* Build configuration list for PBXNativeTarget "Plank" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7177064519BD083200EAFF06 /* Debug */,
-				7177064619BD083200EAFF06 /* Release */,
+				71CE166A19C4FBD2006EBC8F /* Debug */,
+				71CE166B19C4FBD2006EBC8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7177064719BD083200EAFF06 /* Build configuration list for PBXNativeTarget "PlankTests" */ = {
+		71CE166C19C4FBD2006EBC8F /* Build configuration list for PBXNativeTarget "PlankTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7177064819BD083200EAFF06 /* Debug */,
-				7177064919BD083200EAFF06 /* Release */,
+				71CE166D19C4FBD2006EBC8F /* Debug */,
+				71CE166E19C4FBD2006EBC8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7177062819BD083200EAFF06 /* Project object */;
+	rootObject = 71CE164D19C4FBD2006EBC8F /* Project object */;
 }

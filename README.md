@@ -9,7 +9,7 @@ let logger = Plank.Logger(tag: "Tag")
 
 logger.thresholdLevel = .Warning
 
-logger.logWarning("This log should appear because it is at the minimum threshold and no visible tags are defined.")
+logger.logWarning("This log should appear because it is at the minimum threshold.")
 logger.logInfo("This log shouldn't appear because it is set below minimum threshold.")
 ```
 
@@ -35,6 +35,12 @@ logger.logError(message) {
 }
 ```
 **Note:** All logs are written on a serial queue.
+
+The standard formatting for output
+
+```09-13-2014 13:19:21:448 -0700 [bundle executable name|bundle identifier] [filename:line number] functionName() [Logger tag|Log level] 
+message```
+
 
 Set the desired format of log output by setting the formatter property:
 ```swift
