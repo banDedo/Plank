@@ -20,20 +20,20 @@ public let PlankLogMessageKey = "PlankLogMessageKey"
 /// The name of the key for the value holding the formatted log message in the notification userInfo dictionary.
 public let PlankLogBodyKey = "PlankLogBodyKey"
 
-class Logger: NSObject {
+public class Logger: NSObject {
     // MARK:- Public properties
     
     /// Toggle to enable/disable logging.
-    var enabled = true
+    public var enabled = true
     
     /// Messages that fall below the threshold level will not be logged.
-    var thresholdLevel: Level = .Warning
+    public var thresholdLevel: Level = .Warning
     
     /// By default logs are asynchronous but can be performed synchronously.  This property can be used to change this behavior.
-    var synchronous: Bool = false
+    public var synchronous: Bool = false
     
     /// Assignable closure that allows caller to set the format of logged messages.  The closure should return the formatted string that one wishes to log based on the passed parameters.
-    var formatter: ((message: String, tag: String, levelString: String, function: String, file: String, line: Int) -> String)?
+    public var formatter: ((message: String, tag: String, levelString: String, function: String, file: String, line: Int) -> String)?
 
     // MARK:- Cleanup/Initialization
 
@@ -43,7 +43,7 @@ class Logger: NSObject {
        :param: tag A tag that is attached to logs output by this instance
        :returns: A Plank logger instance.
     */
-    init(tag: NSString) {
+    public init(tag: NSString) {
         self.tag = tag
     }
 
@@ -57,7 +57,7 @@ class Logger: NSObject {
        - Info: Use to log important information during program execution, for instance responses for successful HTTP requests.
        - Verbose: Lowest level, use to log debug information during program execution.
     */
-    enum Level: UInt, Printable {
+    public enum Level: UInt, Printable {
         case Verbose = 0
         case Info = 1
         case Warning = 2
@@ -87,7 +87,7 @@ class Logger: NSObject {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    func logError(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+    public func logError(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
         log(message, .Error, completion, function, file, line)
     }
     
@@ -97,7 +97,7 @@ class Logger: NSObject {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    func logWarning(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+    public func logWarning(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
         log(message, .Warning, completion, function, file, line)
     }
     
@@ -107,7 +107,7 @@ class Logger: NSObject {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    func logInfo(message: String?, _ completion: (() -> ())? = nil, function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+    public func logInfo(message: String?, _ completion: (() -> ())? = nil, function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
         log(message, .Info, completion, function, file, line)
     }
     
@@ -117,7 +117,7 @@ class Logger: NSObject {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    func logVerbose(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+    public func logVerbose(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
         log(message, .Verbose, completion, function, file, line)
     }
     
