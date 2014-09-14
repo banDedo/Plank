@@ -63,16 +63,16 @@ public class Logger: NSObject {
         case Warning = 2
         case Error = 3
         
-        var description: String {
+        public var description: String {
             switch self {
                 case Verbose:
-                    return "VERBOSE"
+                    return "Verbose"
                 case Info:
-                    return "INFO"
+                    return "Info"
                 case Warning:
-                    return "WARNING"
+                    return "Warning"
                 case Error:
-                    return "ERROR"
+                    return "Error"
                 default:
                     return ""
             }
@@ -167,7 +167,7 @@ public class Logger: NSObject {
         if formattedFileName == nil {
             formattedFileName = file
         }
-        return "\(Shared.dateFormatter.stringFromDate(NSDate())) [Plank|\(Shared.bundleExecutableName)] [\(formattedFileName):\(line.description)] \(function) [\(tag)|\(level)]\n\(message)\n"
+        return "\(Shared.dateFormatter.stringFromDate(NSDate())) [\(Shared.bundleExecutableName)|Plank] [\(tag)|\(level)] [\(formattedFileName!) \(function):\(line.description)]\n\(message)\n"
     }
     
     private func shouldLog(tag: String?, _ level: Level) -> Bool {
@@ -194,7 +194,8 @@ public class Logger: NSObject {
     private class func dateFormatter() -> NSDateFormatter {
         var dateFormatter = NSDateFormatter()
         dateFormatter.formatterBehavior = .Behavior10_4
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss:SSS Z"
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "yyyy-dd-MM HH:mm:ss:SSS (z)"
         return dateFormatter
     }
 }
