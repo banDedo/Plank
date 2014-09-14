@@ -36,16 +36,21 @@ logger.logError(message) {
 ```
 **Note:** All logs are written on a serial queue.
 
-The standard formatting for output
+For the given log statement:
+```swift
+let logger = Plank.Logger(tag: "JSON")
+logger.logError("{\"foo\":\"bar\"}")
+```
+the console output will look something like this:
+```
+2014-14-09 18:54:11:424 (GMT) [Test|Plank] [JSON|Error] [ViewController.swift viewDidLoad():18]
+{"foo":"bar"}
+```
 
-```09-13-2014 13:19:21:448 -0700 [bundle executable name|bundle identifier] [filename:line number] functionName() [Logger tag|Log level] 
-message```
-
-
-Set the desired format of log output by setting the formatter property:
+You can change the format of log output by setting the formatter property, *e.g.*:
 ```swift
 logger.formatter = { (message: String, tag: String, levelString: String, function: String, file: String, line: Int) in
-    return "\(message)\(tag)\(levelString)"
+    return "[\(tag)|\(levelString)]\n\(message)"
 }
 logger.logError(message)
 ```
