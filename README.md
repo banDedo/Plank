@@ -55,19 +55,17 @@ logger.formatter = { (message: String, tag: String, levelString: String, functio
 logger.logError(message)
 ```
 
-There are built in notifications broadcast before and after every log message which attached the original message and the formatted body to the userInfo:
+Optionally, one can pass a delegate to the logger in its constructor.  The delegate can be used to monitor logging activity.  This is useful for keeping a buffer of recently logged messages or writing to a file when necessary.
 ```swift
-/// The name of the notification is fired on the serial logging queue before log is written.
-public let PlankWillLogNotification = "PlankWillLogNotification"
+public protocol LoggerDelegate {
+    func logger(logger: Logger, didLog message: String, body: String)
+}
 
-/// The name of the notification is fired on the serial logging queue after log is written.
-public let PlankDidLogNotification = "PlankDidLogNotification"
+var loggerDelegate: LoggerDelegate?
+loggerDelegate = ...
+let logger = Logger(tag: tag, delegate: loggerDelegate!)
 
-/// The name of the key for the value holding the unaltered log message in the notification userInfo dictionary.
-public let PlankLogMessageKey = "PlankLogMessageKey"
-
-/// The name of the key for the value holding the formatted log message in the notification userInfo dictionary.
-public let PlankLogBodyKey = "PlankLogBodyKey"
 ```
+
 
 

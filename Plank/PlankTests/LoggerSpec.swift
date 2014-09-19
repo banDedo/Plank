@@ -12,54 +12,18 @@ import Nimble
 import Foundation
 import XCTest
 
+var loggerDelegate: LoggerTestDelegate!
+var logger: Logger!
+
+let message = "Test"
+let tag = "Tag"
+
 class LoggerSpec: QuickSpec {
-    var willLogNotificationListener: NotificationListener?
-    var didLogNotificationListener: NotificationListener?
-
-    private func expectNotificationMessage(message: String, synchronously: Bool) {
-        var expectation1 = expect(self.willLogNotificationListener!.userInfoElement(0, key: PlankLogMessageKey) as? String)
-        var expectation2 = expect(self.didLogNotificationListener!.userInfoElement(0, key: PlankLogMessageKey) as? String)
-        if synchronously {
-            expectation1.to(equal(message))
-            expectation2.to(equal(message))
-        } else {
-            expectation1.toEventually(equal(message));
-            expectation1.toEventually(equal(message));
-        }
-    }
-
-    private func expectNotificationBody(bodyPart: String, synchronously: Bool) {
-        var expectation1 = expect((self.willLogNotificationListener!.userInfoElement(0, key: PlankLogBodyKey) as? String) ?? "")
-        var expectation2 = expect((self.didLogNotificationListener!.userInfoElement(0, key: PlankLogBodyKey) as? String) ?? "")
-        if synchronously {
-            expectation1.to(contain(bodyPart))
-            expectation2.to(contain(bodyPart))
-        } else {
-            expectation1.toEventually(contain(bodyPart))
-            expectation2.toEventually(contain(bodyPart))
-        }
-    }
-
-    private func expectNotification(count: Int, synchronously: Bool) {
-        if synchronously {
-            expect(self.willLogNotificationListener!.notifications.count).to(equal(count))
-            expect(self.didLogNotificationListener!.notifications.count).to(equal(count))
-        } else {
-            expect(self.willLogNotificationListener!.notifications.count).toEventually(equal(count))
-            expect(self.didLogNotificationListener!.notifications.count).toEventually(equal(count))
-        }
-    }
-
     override func spec() {
         describe("a logger") {
-            let message = "Test"
-            let tag = "Tag"
-            var logger = Logger(tag: tag)
- 
             beforeEach {
-                logger = Logger(tag: tag)
-                self.willLogNotificationListener = NotificationListener(name: PlankWillLogNotification, object: logger)
-                self.didLogNotificationListener = NotificationListener(name: PlankDidLogNotification, object: logger)
+                loggerDelegate = LoggerTestDelegate()
+                logger = Logger(tag: tag, delegate: loggerDelegate)
             }
             
             it("will log verbose") {
@@ -100,7 +64,8 @@ class LoggerSpec: QuickSpec {
             it("will log asynchronously") {
                 logger.synchronous = false
                 logger.logError(message)
-
+                
+                self.expectNotification(0, synchronously: true)
                 self.expectNotification(1, synchronously: false)
             }
             
@@ -112,14 +77,14 @@ class LoggerSpec: QuickSpec {
             }
             
             it("will log when over log threshold") {
-                logger.thresholdLevel = .Verbose;
+                logger.thresholdLevel = .Verbose
                 logger.logError(message)
                 
                 self.expectNotification(1, synchronously: false)
             }
 
             it("will not log when under log threshold") {
-                logger.thresholdLevel = .Error;
+                logger.thresholdLevel = .Error
                 logger.logWarning(message)
                 
                 self.expectNotification(0, synchronously: false)
@@ -133,7 +98,7 @@ class LoggerSpec: QuickSpec {
             }
             
             it("will not log when under log threshold") {
-                logger.thresholdLevel = .Error;
+                logger.thresholdLevel = .Error
                 logger.logVerbose(message)
                 
                 self.expectNotification(0, synchronously: false)
@@ -174,5 +139,48 @@ class LoggerSpec: QuickSpec {
                 expect(called).toEventually(equal(true))
             }
         }
+    }
+    
+    private func expectNotificationMessage(message: String, synchronously: Bool) {
+        var expectation = expect(loggerDelegate.message)
+        if synchronously {
+            expectation.to(equal(message))
+        } else {
+            expectation.toEventually(equal(message))
+        }
+    }
+    
+    private func expectNotificationBody(bodyPart: String, synchronously: Bool) {
+        var expectation = expect(loggerDelegate.body ?? "")
+        if synchronously {
+            expectation.to(contain(bodyPart))
+        } else {
+            expectation.toEventually(contain(bodyPart))
+        }
+    }
+    
+    private func expectNotification(count: Int, synchronously: Bool) {
+        var expectation = expect(loggerDelegate.fireCount)
+        if synchronously {
+            expectation.to(equal(count))
+        } else {
+            expectation.toEventually(equal(count))
+        }
+    }
+}
+
+class LoggerTestDelegate: LoggerDelegate {
+    var fireCount: Int?
+    var message: String?
+    var body: String?
+    
+    init() {
+        fireCount = 0
+    }
+    
+    func logger(logger: Logger, didLog message: String, body: String) {
+        self.message = message
+        self.body = body
+        fireCount!++
     }
 }
