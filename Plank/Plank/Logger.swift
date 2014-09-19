@@ -8,17 +8,9 @@
 
 import Foundation
 
-/// The name of the notification is fired on the serial logging queue before log is written.
-public let PlankWillLogNotification = "PlankWillLogNotification"
-
-/// The name of the notification is fired on the serial logging queue after log is written.
-public let PlankDidLogNotification = "PlankDidLogNotification"
-
-/// The name of the key for the value holding the unaltered log message in the notification userInfo dictionary.
-public let PlankLogMessageKey = "PlankLogMessageKey"
-
-/// The name of the key for the value holding the formatted log message in the notification userInfo dictionary.
-public let PlankLogBodyKey = "PlankLogBodyKey"
+public protocol LoggerDelegate {
+    func logger(logger: Logger, didLog message: String, body: String)
+}
 
 public class Logger {
     // MARK:- Public properties
@@ -41,10 +33,12 @@ public class Logger {
        Default constructor for class
     
        :param: tag A tag that is attached to logs output by this instance
+       :param: delegate Fields delegate callbacks for this instance
        :returns: A Plank logger instance.
     */
-    public init(tag: NSString) {
+    public init(tag: NSString, delegate: LoggerDelegate? = nil) {
         self.tag = tag
+        self.delegate = delegate
     }
 
     // MARK:- Level enumeration
@@ -123,6 +117,8 @@ public class Logger {
     
     // MARK:- Private properties
 
+    private let delegate: LoggerDelegate?
+    
     private var tag: NSString
     private let queue = Shared.queue
     
@@ -136,11 +132,12 @@ public class Logger {
         var handler: (Void) -> Void = {
             let formattedMessage = message ?? "(null)"
             let logText = self.logText(formattedMessage, level, function, file, line)
-            let userInfo = [ PlankLogMessageKey: formattedMessage, PlankLogBodyKey: logText ]
 
-            NSNotificationCenter.defaultCenter().postNotificationName(PlankWillLogNotification, object: self, userInfo: userInfo)
             println(logText)
-            NSNotificationCenter.defaultCenter().postNotificationName(PlankDidLogNotification, object: self, userInfo: userInfo)
+            
+            if self.delegate != nil {
+                self.delegate?.logger(self, didLog: formattedMessage, body: logText)
+            }
             
             if completion != nil {
                 completion!()
