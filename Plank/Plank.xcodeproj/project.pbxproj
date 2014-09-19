@@ -14,7 +14,6 @@
 		71CE167519C4FC05006EBC8F /* Plank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CE165619C4FBD2006EBC8F /* Plank.framework */; };
 		71CE167719C4FC09006EBC8F /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CE167619C4FC09006EBC8F /* Nimble.framework */; };
 		71CE167919C4FC0C006EBC8F /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CE167819C4FC0C006EBC8F /* Quick.framework */; };
-		71CE167D19C4FC6A006EBC8F /* NotificationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE167C19C4FC6A006EBC8F /* NotificationListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		71CE167319C4FBFA006EBC8F /* LoggerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerSpec.swift; sourceTree = "<group>"; };
 		71CE167619C4FC09006EBC8F /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		71CE167819C4FC0C006EBC8F /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Plank-euwrhosgbkabrxczkxquakynfklc/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
-		71CE167C19C4FC6A006EBC8F /* NotificationListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				71CE167319C4FBFA006EBC8F /* LoggerSpec.swift */,
-				71CE167B19C4FC57006EBC8F /* NotificationListener */,
 				71CE166319C4FBD2006EBC8F /* Supporting Files */,
 			);
 			path = PlankTests;
@@ -113,14 +110,6 @@
 				71CE167619C4FC09006EBC8F /* Nimble.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		71CE167B19C4FC57006EBC8F /* NotificationListener */ = {
-			isa = PBXGroup;
-			children = (
-				71CE167C19C4FC6A006EBC8F /* NotificationListener.swift */,
-			);
-			name = NotificationListener;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +228,6 @@
 			files = (
 				71CE167219C4FBF1006EBC8F /* Logger.swift in Sources */,
 				71CE167419C4FBFA006EBC8F /* LoggerSpec.swift in Sources */,
-				71CE167D19C4FC6A006EBC8F /* NotificationListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +358,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Plank-euwrhosgbkabrxczkxquakynfklc/Build/Products/Debug",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -388,7 +375,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Plank-euwrhosgbkabrxczkxquakynfklc/Build/Products/Debug",
 				);
 				INFOPLIST_FILE = PlankTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
