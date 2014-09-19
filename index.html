@@ -88,19 +88,16 @@
 <span class="n">logger</span><span class="p">.</span><span class="n">logError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 </pre></div>
 
-<p>There are built in notifications broadcast before and after every log message which attached the original message and the formatted body to the userInfo:</p>
+<p>Optionally, one can pass a delegate to the logger in its constructor.  The delegate can be used to monitor logging activity.  This is useful for keeping a buffer of recently logged messages or writing to a file when necessary.</p>
 
-<div class="highlight highlight-swift"><pre><span class="c1">/// The name of the notification is fired on the serial logging queue before log is written.</span>
-<span class="n">public</span> <span class="k">let</span> <span class="n">PlankWillLogNotification</span> <span class="o">=</span> <span class="s">"PlankWillLogNotification"</span>
+<div class="highlight highlight-swift"><pre><span class="n">public</span> <span class="k">protocol</span> <span class="n">LoggerDelegate</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">logger</span><span class="p">(</span><span class="nl">logger</span><span class="p">:</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">didLog</span> <span class="nl">message</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">body</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="c1">/// The name of the notification is fired on the serial logging queue after log is written.</span>
-<span class="n">public</span> <span class="k">let</span> <span class="n">PlankDidLogNotification</span> <span class="o">=</span> <span class="s">"PlankDidLogNotification"</span>
+<span class="k">var</span> <span class="nl">loggerDelegate</span><span class="p">:</span> <span class="n">LoggerDelegate</span><span class="o">?</span>
+<span class="n">loggerDelegate</span> <span class="o">=</span> <span class="p">...</span>
+<span class="k">let</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">(</span><span class="nl">tag</span><span class="p">:</span> <span class="n">tag</span><span class="p">,</span> <span class="nl">delegate</span><span class="p">:</span> <span class="n">loggerDelegate</span><span class="o">!</span><span class="p">)</span>
 
-<span class="c1">/// The name of the key for the value holding the unaltered log message in the notification userInfo dictionary.</span>
-<span class="n">public</span> <span class="k">let</span> <span class="n">PlankLogMessageKey</span> <span class="o">=</span> <span class="s">"PlankLogMessageKey"</span>
-
-<span class="c1">/// The name of the key for the value holding the formatted log message in the notification userInfo dictionary.</span>
-<span class="n">public</span> <span class="k">let</span> <span class="n">PlankLogBodyKey</span> <span class="o">=</span> <span class="s">"PlankLogBodyKey"</span>
 </pre></div>
         </section>
 
