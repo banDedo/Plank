@@ -7,107 +7,105 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71CE165C19C4FBD2006EBC8F /* Plank.h in Headers */ = {isa = PBXBuildFile; fileRef = 71CE165B19C4FBD2006EBC8F /* Plank.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		71CE167119C4FBF1006EBC8F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE167019C4FBF1006EBC8F /* Logger.swift */; };
-		71CE167219C4FBF1006EBC8F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE167019C4FBF1006EBC8F /* Logger.swift */; };
-		71CE167419C4FBFA006EBC8F /* LoggerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE167319C4FBFA006EBC8F /* LoggerSpec.swift */; };
-		71CE167519C4FC05006EBC8F /* Plank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CE165619C4FBD2006EBC8F /* Plank.framework */; };
-		71CE167719C4FC09006EBC8F /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CE167619C4FC09006EBC8F /* Nimble.framework */; };
-		71CE167919C4FC0C006EBC8F /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CE167819C4FC0C006EBC8F /* Quick.framework */; };
+		712D524C19D8F202004E4781 /* Plank.h in Headers */ = {isa = PBXBuildFile; fileRef = 712D524B19D8F202004E4781 /* Plank.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		712D526019D8F20D004E4781 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D525F19D8F20D004E4781 /* Logger.swift */; };
+		712D526219D8F216004E4781 /* LoggerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D526119D8F216004E4781 /* LoggerSpec.swift */; };
+		712D526319D8F22E004E4781 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D525F19D8F20D004E4781 /* Logger.swift */; };
+		712D526619D8F258004E4781 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712D526519D8F258004E4781 /* Nimble.framework */; };
+		712D526819D8F25C004E4781 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712D526719D8F25C004E4781 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		71CE165619C4FBD2006EBC8F /* Plank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71CE165A19C4FBD2006EBC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71CE165B19C4FBD2006EBC8F /* Plank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plank.h; sourceTree = "<group>"; };
-		71CE166119C4FBD2006EBC8F /* PlankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		71CE166419C4FBD2006EBC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71CE167019C4FBF1006EBC8F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		71CE167319C4FBFA006EBC8F /* LoggerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerSpec.swift; sourceTree = "<group>"; };
-		71CE167619C4FC09006EBC8F /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
-		71CE167819C4FC0C006EBC8F /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Plank-euwrhosgbkabrxczkxquakynfklc/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
+		712D524619D8F202004E4781 /* Plank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		712D524A19D8F202004E4781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		712D524B19D8F202004E4781 /* Plank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plank.h; sourceTree = "<group>"; };
+		712D525119D8F202004E4781 /* PlankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		712D525419D8F202004E4781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		712D525F19D8F20D004E4781 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		712D526119D8F216004E4781 /* LoggerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerSpec.swift; sourceTree = "<group>"; };
+		712D526519D8F258004E4781 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		712D526719D8F25C004E4781 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Plank-euwrhosgbkabrxczkxquakynfklc/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		71CE165219C4FBD2006EBC8F /* Frameworks */ = {
+		712D524219D8F202004E4781 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		71CE165E19C4FBD2006EBC8F /* Frameworks */ = {
+		712D524E19D8F202004E4781 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71CE167519C4FC05006EBC8F /* Plank.framework in Frameworks */,
-				71CE167919C4FC0C006EBC8F /* Quick.framework in Frameworks */,
-				71CE167719C4FC09006EBC8F /* Nimble.framework in Frameworks */,
+				712D526819D8F25C004E4781 /* Quick.framework in Frameworks */,
+				712D526619D8F258004E4781 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		71CE164C19C4FBD2006EBC8F = {
+		712D523C19D8F202004E4781 = {
 			isa = PBXGroup;
 			children = (
-				71CE165819C4FBD2006EBC8F /* Plank */,
-				71CE166219C4FBD2006EBC8F /* PlankTests */,
-				71CE167A19C4FC13006EBC8F /* Frameworks */,
-				71CE165719C4FBD2006EBC8F /* Products */,
+				712D524819D8F202004E4781 /* Plank */,
+				712D525219D8F202004E4781 /* PlankTests */,
+				712D526919D8F25F004E4781 /* Frameworks */,
+				712D524719D8F202004E4781 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		71CE165719C4FBD2006EBC8F /* Products */ = {
+		712D524719D8F202004E4781 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71CE165619C4FBD2006EBC8F /* Plank.framework */,
-				71CE166119C4FBD2006EBC8F /* PlankTests.xctest */,
+				712D524619D8F202004E4781 /* Plank.framework */,
+				712D525119D8F202004E4781 /* PlankTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71CE165819C4FBD2006EBC8F /* Plank */ = {
+		712D524819D8F202004E4781 /* Plank */ = {
 			isa = PBXGroup;
 			children = (
-				71CE165B19C4FBD2006EBC8F /* Plank.h */,
-				71CE167019C4FBF1006EBC8F /* Logger.swift */,
-				71CE165919C4FBD2006EBC8F /* Supporting Files */,
+				712D524B19D8F202004E4781 /* Plank.h */,
+				712D525F19D8F20D004E4781 /* Logger.swift */,
+				712D524919D8F202004E4781 /* Supporting Files */,
 			);
 			path = Plank;
 			sourceTree = "<group>";
 		};
-		71CE165919C4FBD2006EBC8F /* Supporting Files */ = {
+		712D524919D8F202004E4781 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				71CE165A19C4FBD2006EBC8F /* Info.plist */,
+				712D524A19D8F202004E4781 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		71CE166219C4FBD2006EBC8F /* PlankTests */ = {
+		712D525219D8F202004E4781 /* PlankTests */ = {
 			isa = PBXGroup;
 			children = (
-				71CE167319C4FBFA006EBC8F /* LoggerSpec.swift */,
-				71CE166319C4FBD2006EBC8F /* Supporting Files */,
+				712D526119D8F216004E4781 /* LoggerSpec.swift */,
+				712D525319D8F202004E4781 /* Supporting Files */,
 			);
 			path = PlankTests;
 			sourceTree = "<group>";
 		};
-		71CE166319C4FBD2006EBC8F /* Supporting Files */ = {
+		712D525319D8F202004E4781 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				71CE166419C4FBD2006EBC8F /* Info.plist */,
+				712D525419D8F202004E4781 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		71CE167A19C4FC13006EBC8F /* Frameworks */ = {
+		712D526919D8F25F004E4781 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71CE167819C4FC0C006EBC8F /* Quick.framework */,
-				71CE167619C4FC09006EBC8F /* Nimble.framework */,
+				712D526719D8F25C004E4781 /* Quick.framework */,
+				712D526519D8F258004E4781 /* Nimble.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,25 +113,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		71CE165319C4FBD2006EBC8F /* Headers */ = {
+		712D524319D8F202004E4781 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71CE165C19C4FBD2006EBC8F /* Plank.h in Headers */,
+				712D524C19D8F202004E4781 /* Plank.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		71CE165519C4FBD2006EBC8F /* Plank */ = {
+		712D524519D8F202004E4781 /* Plank */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71CE166919C4FBD2006EBC8F /* Build configuration list for PBXNativeTarget "Plank" */;
+			buildConfigurationList = 712D525919D8F202004E4781 /* Build configuration list for PBXNativeTarget "Plank" */;
 			buildPhases = (
-				71CE165119C4FBD2006EBC8F /* Sources */,
-				71CE165219C4FBD2006EBC8F /* Frameworks */,
-				71CE165319C4FBD2006EBC8F /* Headers */,
-				71CE165419C4FBD2006EBC8F /* Resources */,
+				712D524119D8F202004E4781 /* Sources */,
+				712D524219D8F202004E4781 /* Frameworks */,
+				712D524319D8F202004E4781 /* Headers */,
+				712D524419D8F202004E4781 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -141,16 +139,16 @@
 			);
 			name = Plank;
 			productName = Plank;
-			productReference = 71CE165619C4FBD2006EBC8F /* Plank.framework */;
+			productReference = 712D524619D8F202004E4781 /* Plank.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		71CE166019C4FBD2006EBC8F /* PlankTests */ = {
+		712D525019D8F202004E4781 /* PlankTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71CE166C19C4FBD2006EBC8F /* Build configuration list for PBXNativeTarget "PlankTests" */;
+			buildConfigurationList = 712D525C19D8F202004E4781 /* Build configuration list for PBXNativeTarget "PlankTests" */;
 			buildPhases = (
-				71CE165D19C4FBD2006EBC8F /* Sources */,
-				71CE165E19C4FBD2006EBC8F /* Frameworks */,
-				71CE165F19C4FBD2006EBC8F /* Resources */,
+				712D524D19D8F202004E4781 /* Sources */,
+				712D524E19D8F202004E4781 /* Frameworks */,
+				712D524F19D8F202004E4781 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -158,53 +156,53 @@
 			);
 			name = PlankTests;
 			productName = PlankTests;
-			productReference = 71CE166119C4FBD2006EBC8F /* PlankTests.xctest */;
+			productReference = 712D525119D8F202004E4781 /* PlankTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		71CE164D19C4FBD2006EBC8F /* Project object */ = {
+		712D523D19D8F202004E4781 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = bandedo;
 				TargetAttributes = {
-					71CE165519C4FBD2006EBC8F = {
+					712D524519D8F202004E4781 = {
 						CreatedOnToolsVersion = 6.0;
 					};
-					71CE166019C4FBD2006EBC8F = {
+					712D525019D8F202004E4781 = {
 						CreatedOnToolsVersion = 6.0;
 					};
 				};
 			};
-			buildConfigurationList = 71CE165019C4FBD2006EBC8F /* Build configuration list for PBXProject "Plank" */;
+			buildConfigurationList = 712D524019D8F202004E4781 /* Build configuration list for PBXProject "Plank" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 71CE164C19C4FBD2006EBC8F;
-			productRefGroup = 71CE165719C4FBD2006EBC8F /* Products */;
+			mainGroup = 712D523C19D8F202004E4781;
+			productRefGroup = 712D524719D8F202004E4781 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				71CE165519C4FBD2006EBC8F /* Plank */,
-				71CE166019C4FBD2006EBC8F /* PlankTests */,
+				712D524519D8F202004E4781 /* Plank */,
+				712D525019D8F202004E4781 /* PlankTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		71CE165419C4FBD2006EBC8F /* Resources */ = {
+		712D524419D8F202004E4781 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		71CE165F19C4FBD2006EBC8F /* Resources */ = {
+		712D524F19D8F202004E4781 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,27 +212,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		71CE165119C4FBD2006EBC8F /* Sources */ = {
+		712D524119D8F202004E4781 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71CE167119C4FBF1006EBC8F /* Logger.swift in Sources */,
+				712D526019D8F20D004E4781 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		71CE165D19C4FBD2006EBC8F /* Sources */ = {
+		712D524D19D8F202004E4781 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71CE167219C4FBF1006EBC8F /* Logger.swift in Sources */,
-				71CE167419C4FBFA006EBC8F /* LoggerSpec.swift in Sources */,
+				712D526219D8F216004E4781 /* LoggerSpec.swift in Sources */,
+				712D526319D8F22E004E4781 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		71CE166719C4FBD2006EBC8F /* Debug */ = {
+		712D525719D8F202004E4781 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -280,7 +278,7 @@
 			};
 			name = Debug;
 		};
-		71CE166819C4FBD2006EBC8F /* Release */ = {
+		712D525819D8F202004E4781 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -319,7 +317,7 @@
 			};
 			name = Release;
 		};
-		71CE166A19C4FBD2006EBC8F /* Debug */ = {
+		712D525A19D8F202004E4781 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -336,7 +334,7 @@
 			};
 			name = Debug;
 		};
-		71CE166B19C4FBD2006EBC8F /* Release */ = {
+		712D525B19D8F202004E4781 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -352,7 +350,7 @@
 			};
 			name = Release;
 		};
-		71CE166D19C4FBD2006EBC8F /* Debug */ = {
+		712D525D19D8F202004E4781 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -369,7 +367,7 @@
 			};
 			name = Debug;
 		};
-		71CE166E19C4FBD2006EBC8F /* Release */ = {
+		712D525E19D8F202004E4781 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -385,34 +383,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		71CE165019C4FBD2006EBC8F /* Build configuration list for PBXProject "Plank" */ = {
+		712D524019D8F202004E4781 /* Build configuration list for PBXProject "Plank" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				71CE166719C4FBD2006EBC8F /* Debug */,
-				71CE166819C4FBD2006EBC8F /* Release */,
+				712D525719D8F202004E4781 /* Debug */,
+				712D525819D8F202004E4781 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71CE166919C4FBD2006EBC8F /* Build configuration list for PBXNativeTarget "Plank" */ = {
+		712D525919D8F202004E4781 /* Build configuration list for PBXNativeTarget "Plank" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				71CE166A19C4FBD2006EBC8F /* Debug */,
-				71CE166B19C4FBD2006EBC8F /* Release */,
+				712D525A19D8F202004E4781 /* Debug */,
+				712D525B19D8F202004E4781 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71CE166C19C4FBD2006EBC8F /* Build configuration list for PBXNativeTarget "PlankTests" */ = {
+		712D525C19D8F202004E4781 /* Build configuration list for PBXNativeTarget "PlankTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				71CE166D19C4FBD2006EBC8F /* Debug */,
-				71CE166E19C4FBD2006EBC8F /* Release */,
+				712D525D19D8F202004E4781 /* Debug */,
+				712D525E19D8F202004E4781 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 71CE164D19C4FBD2006EBC8F /* Project object */;
+	rootObject = 712D523D19D8F202004E4781 /* Project object */;
 }
