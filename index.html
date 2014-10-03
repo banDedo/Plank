@@ -21,7 +21,7 @@
       <div class="inner">
         <h1>Plank</h1>
         <h2>A lightweight logger written in Swift.</h2>
-        <a href="https://github.com/banDedo/Plank" class="button"><small>View project on</small>GitHub</a>
+        <a href="https://github.com/banDedo/Plank" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
 
@@ -34,7 +34,31 @@
 <h2>
 <a name="what-is-plank" class="anchor" href="#what-is-plank"><span class="octicon octicon-link"></span></a>What is Plank?</h2>
 
-<p>Plank is a lightweight logging framework for the Swift programming language that allows gating of log messages as a function of build configuration.  Plank provides a hook to filter logs based on level.</p>
+<p>Plank is a lightweight logging framework for the Swift programming language that allows gating of log messages as a function of build configuration.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>iOS 7.0+ / Mac OS X 10.10+</li>
+<li>Xcode 6.1</li>
+</ul><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p><em>Due to the current lack of <a href="http://cocoapods.org">proper infrastructure</a> for Swift dependency management, using Plank in your project requires the following steps:</em></p>
+
+<ol>
+<li>Add Plank as a <a href="http://git-scm.com/docs/git-submodule">submodule</a> by opening the Terminal, <code>cd</code>-ing into your top-level project directory, and entering the command <code>git submodule add https://github.com/banDedo/Plank</code>
+</li>
+<li>Open the <code>Plank</code> folder, and drag <code>Plank.xcodeproj</code> into the file navigator of your Xcode project.</li>
+<li>In Xcode, navigate to the target configuration window by clicking on the blue project icon, and selecting the application target under the "Targets" heading in the sidebar.</li>
+<li>In the tab bar at the top of that window, open the "Build Phases" panel.</li>
+<li>Expand the "Link Binary with Libraries" group, and add <code>Plank.framework</code>.</li>
+<li>Click on the <code>+</code> button at the top left of the panel and select "New Copy Files Phase". Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add <code>Plank.framework</code>.</li>
+</ol><h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Plank provides a hook to filter logs based on level.</p>
 
 <div class="highlight highlight-swift"><pre><span class="k">let</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">Plank</span><span class="p">.</span><span class="n">Logger</span><span class="p">(</span><span class="nl">tag</span><span class="p">:</span> <span class="s">"Tag"</span><span class="p">)</span>
 
