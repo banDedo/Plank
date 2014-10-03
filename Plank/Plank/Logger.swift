@@ -168,7 +168,7 @@ public class Logger {
     }
     
     private func shouldLog(tag: String?, _ level: Level) -> Bool {
-        if !self.enabled || level.toRaw() < self.thresholdLevel.toRaw() {
+        if !self.enabled || level.rawValue < self.thresholdLevel.rawValue {
             return false
         }
         
@@ -178,7 +178,7 @@ public class Logger {
     // MARK:- Private shared
 
     private struct Shared {
-        static let bundleExecutableName: NSString = (NSBundle.mainBundle().infoDictionary[kCFBundleExecutableKey] ?? "Unknown") as NSString
+        static let bundleExecutableName: NSString = (NSBundle.mainBundle().infoDictionary?[kCFBundleExecutableKey] ?? "Unknown") as NSString
         static let queue = dispatch_queue_create(Logger.queueName().UTF8String, DISPATCH_QUEUE_SERIAL)
         static let dateFormatter: NSDateFormatter = Logger.dateFormatter();
     }
