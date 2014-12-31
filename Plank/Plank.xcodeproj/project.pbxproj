@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71244DC41A545C15002103BF /* BDSystemLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 71244DC21A545C15002103BF /* BDSystemLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71244DC51A545C15002103BF /* BDSystemLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 71244DC31A545C15002103BF /* BDSystemLogger.m */; };
 		712D524C19D8F202004E4781 /* Plank.h in Headers */ = {isa = PBXBuildFile; fileRef = 712D524B19D8F202004E4781 /* Plank.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		712D526019D8F20D004E4781 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D525F19D8F20D004E4781 /* Logger.swift */; };
 		712D526219D8F216004E4781 /* LoggerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D526119D8F216004E4781 /* LoggerSpec.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71244DC21A545C15002103BF /* BDSystemLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSystemLogger.h; sourceTree = "<group>"; };
+		71244DC31A545C15002103BF /* BDSystemLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDSystemLogger.m; sourceTree = "<group>"; };
 		712D524619D8F202004E4781 /* Plank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		712D524A19D8F202004E4781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712D524B19D8F202004E4781 /* Plank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plank.h; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 			children = (
 				712D524B19D8F202004E4781 /* Plank.h */,
 				712D525F19D8F20D004E4781 /* Logger.swift */,
+				71244DC21A545C15002103BF /* BDSystemLogger.h */,
+				71244DC31A545C15002103BF /* BDSystemLogger.m */,
 				712D524919D8F202004E4781 /* Supporting Files */,
 			);
 			path = Plank;
@@ -118,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				712D524C19D8F202004E4781 /* Plank.h in Headers */,
+				71244DC41A545C15002103BF /* BDSystemLogger.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71244DC51A545C15002103BF /* BDSystemLogger.m in Sources */,
 				712D526019D8F20D004E4781 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +338,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -347,6 +356,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

@@ -18,6 +18,9 @@ public class Logger {
     /// Toggle to enable/disable logging.
     public var enabled = true
     
+    /// Toggle to enable/disable system logging.
+    public var systemLogEnabled = true
+    
     /// Messages that fall below the threshold level will not be logged.
     public var thresholdLevel: Level = .Warning
     
@@ -51,7 +54,7 @@ public class Logger {
        - Info: Use to log important information during program execution, for instance responses for successful HTTP requests.
        - Verbose: Lowest level, use to log debug information during program execution.
     */
-    public enum Level: UInt, Printable {
+    public enum Level: Int, Printable {
         case Verbose = 0
         case Info = 1
         case Warning = 2
@@ -121,6 +124,10 @@ public class Logger {
     
     private var tag: NSString
     private let queue = Shared.queue
+
+    private lazy var systemLogger: BDSystemLogger = {
+        return BDSystemLogger()
+    }()
     
     // MARK:- Private logging
 
@@ -134,6 +141,10 @@ public class Logger {
             let logText = self.logText(formattedMessage, level, function, file, line)
 
             println(logText)
+            
+            if self.systemLogEnabled {
+                self.systemLogger.logMessage(logText, level: level.rawValue)
+            }
             
             if self.delegate != nil {
                 self.delegate?.logger(self, didLog: formattedMessage, body: logText)
