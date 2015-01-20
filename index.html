@@ -29,21 +29,23 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h1>
-<a name="plank" class="anchor" href="#plank"><span class="octicon octicon-link"></span></a>Plank</h1>
+<a id="plank" class="anchor" href="#plank" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plank</h1>
 
 <h2>
-<a name="what-is-plank" class="anchor" href="#what-is-plank"><span class="octicon octicon-link"></span></a>What is Plank?</h2>
+<a id="what-is-plank" class="anchor" href="#what-is-plank" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Plank?</h2>
 
 <p>Plank is a lightweight logging framework for the Swift programming language that allows gating of log messages as a function of build configuration.</p>
 
 <h2>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
 
 <ul>
 <li>iOS 7.0+ / Mac OS X 10.10+</li>
 <li>Xcode 6.1</li>
-</ul><h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+</ul>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p><em>Due to the current lack of <a href="http://cocoapods.org">proper infrastructure</a> for Swift dependency management, using Plank in your project requires the following steps:</em></p>
 
@@ -55,48 +57,57 @@
 <li>In the tab bar at the top of that window, open the "Build Phases" panel.</li>
 <li>Expand the "Link Binary with Libraries" group, and add <code>Plank.framework</code>.</li>
 <li>Click on the <code>+</code> button at the top left of the panel and select "New Copy Files Phase". Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add <code>Plank.framework</code>.</li>
-</ol><h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+</ol>
+
+<h2>
+<a id="installation-cocoapods-pre-release" class="anchor" href="#installation-cocoapods-pre-release" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation (Cocoapods pre-release)</h2>
+
+<ol>
+<li>Add Plank as a line in your Podfile <code>pod 'Plank'</code>
+</li>
+<li>Run <code>pod install</code>
+</li>
+<li>
+<p>Add <code>import Plank</code> to the file(s) that you wish the use it in.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>Plank provides a hook to filter logs based on level.</p>
+</li>
+</ol>
 
-<div class="highlight highlight-swift"><pre><span class="k">let</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">Plank</span><span class="p">.</span><span class="n">Logger</span><span class="p">(</span><span class="nl">tag</span><span class="p">:</span> <span class="s">"Tag"</span><span class="p">)</span>
+<div class="highlight highlight-swift"><pre><span class="pl-st">let</span> logger <span class="pl-k">=</span> Plank<span class="pl-k">.</span>Logger(tag: <span class="pl-s1"><span class="pl-pds">"</span>Tag<span class="pl-pds">"</span></span>)
 
-<span class="n">logger</span><span class="p">.</span><span class="n">thresholdLevel</span> <span class="o">=</span> <span class="p">.</span><span class="n">Warning</span>
+logger<span class="pl-k">.</span>thresholdLevel <span class="pl-k">=</span> <span class="pl-k">.</span>Warning
 
-<span class="n">logger</span><span class="p">.</span><span class="n">logWarning</span><span class="p">(</span><span class="s">"This log should appear because it is at the minimum threshold."</span><span class="p">)</span>
-<span class="n">logger</span><span class="p">.</span><span class="n">logInfo</span><span class="p">(</span><span class="s">"This log shouldn't appear because it is set below minimum threshold."</span><span class="p">)</span>
-</pre></div>
+logger<span class="pl-k">.</span>logWarning(<span class="pl-s1"><span class="pl-pds">"</span>This log should appear because it is at the minimum threshold.<span class="pl-pds">"</span></span>)
+logger<span class="pl-k">.</span>logInfo(<span class="pl-s1"><span class="pl-pds">"</span>This log shouldn't appear because it is set below minimum threshold.<span class="pl-pds">"</span></span>)</pre></div>
 
-<p>Set the desired threshold log level, by default it is set to .Warn.  With this example all logs will be recorded.</p>
+<p>Set the desired threshold log level, by default it is set to .Warning.  With this example all logs will be recorded.</p>
 
-<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">thresholdLevel</span> <span class="o">=</span> <span class="p">.</span><span class="n">Warning</span>
-</pre></div>
+<div class="highlight highlight-swift"><pre>logger<span class="pl-k">.</span>thresholdLevel <span class="pl-k">=</span> <span class="pl-k">.</span>Warning</pre></div>
 
 <p>Turn off all logs by setting the enabled property to false:</p>
 
-<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="nb">false</span>
-</pre></div>
+<div class="highlight highlight-swift"><pre>logger<span class="pl-k">.</span>enabled <span class="pl-k">=</span> <span class="pl-c1">false</span></pre></div>
 
 <p>All loggers are asynchronous by default, but one can change to synchronous by setting this aptly named property:</p>
 
-<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">synchronous</span> <span class="o">=</span> <span class="nb">true</span>
-</pre></div>
+<div class="highlight highlight-swift"><pre>logger<span class="pl-k">.</span>synchronous <span class="pl-k">=</span> <span class="pl-c1">true</span></pre></div>
 
 <p>One can execute code after asynchronous logs by attaching a trailing closure.</p>
 
-<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">logError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Do something on logging queue immediately after log is written.</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-swift"><pre>logger<span class="pl-k">.</span>logError(message) {
+    <span class="pl-c">// Do something on logging queue immediately after log is written.</span>
+}</pre></div>
 
 <p><strong>Note:</strong> All logs are written on a serial queue.</p>
 
 <p>For the given log statement:</p>
 
-<div class="highlight highlight-swift"><pre><span class="k">let</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">Plank</span><span class="p">.</span><span class="n">Logger</span><span class="p">(</span><span class="nl">tag</span><span class="p">:</span> <span class="s">"JSON"</span><span class="p">)</span>
-<span class="n">logger</span><span class="p">.</span><span class="n">logError</span><span class="p">(</span><span class="s">"{</span><span class="se">\"</span><span class="s">foo</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">bar</span><span class="se">\"</span><span class="s">}"</span><span class="p">)</span>
-</pre></div>
+<div class="highlight highlight-swift"><pre><span class="pl-st">let</span> logger <span class="pl-k">=</span> Plank<span class="pl-k">.</span>Logger(tag: <span class="pl-s1"><span class="pl-pds">"</span>JSON<span class="pl-pds">"</span></span>)
+logger<span class="pl-k">.</span>logError(<span class="pl-s1"><span class="pl-pds">"</span>{<span class="pl-cce">\"</span>foo<span class="pl-cce">\"</span>:<span class="pl-cce">\"</span>bar<span class="pl-cce">\"</span>}<span class="pl-pds">"</span></span>)</pre></div>
 
 <p>the console output will look something like this:</p>
 
@@ -106,22 +117,20 @@
 
 <p>You can change the format of log output by setting the formatter property, <em>e.g.</em>:</p>
 
-<div class="highlight highlight-swift"><pre><span class="n">logger</span><span class="p">.</span><span class="n">formatter</span> <span class="o">=</span> <span class="p">{</span> <span class="p">(</span><span class="nl">message</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">tag</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">levelString</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">function</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">file</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">line</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="k">in</span>
-    <span class="k">return</span> <span class="s">"[\(tag)|\(levelString)]</span><span class="se">\n</span><span class="s">\(message)"</span>
-<span class="p">}</span>
-<span class="n">logger</span><span class="p">.</span><span class="n">logError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-</pre></div>
+<div class="highlight highlight-swift"><pre>logger<span class="pl-k">.</span>formatter <span class="pl-k">=</span> { (message: <span class="pl-s3">String</span>, tag: <span class="pl-s3">String</span>, levelString: <span class="pl-s3">String</span>, function: <span class="pl-s3">String</span>, file: <span class="pl-s3">String</span>, line: <span class="pl-s3">Int</span>) <span class="pl-k">in</span>
+    <span class="pl-k">return</span> <span class="pl-s1"><span class="pl-pds">"</span>[<span class="pl-pse">\(</span><span class="pl-s2">tag</span><span class="pl-pse">)</span>|<span class="pl-pse">\(</span><span class="pl-s2">levelString</span><span class="pl-pse">)</span>]<span class="pl-cce">\n</span><span class="pl-pse">\(</span><span class="pl-s2">message</span><span class="pl-pse">)</span><span class="pl-pds">"</span></span>
+}
+logger<span class="pl-k">.</span>logError(message)</pre></div>
 
 <p>Optionally, one can pass a delegate to the logger in its constructor.  The delegate can be used to monitor logging activity.  This is useful for keeping a buffer of recently logged messages or writing to a file when necessary.</p>
 
-<div class="highlight highlight-swift"><pre><span class="n">public</span> <span class="k">protocol</span> <span class="n">LoggerDelegate</span> <span class="p">{</span>
-    <span class="k">func</span> <span class="n">logger</span><span class="p">(</span><span class="nl">logger</span><span class="p">:</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">didLog</span> <span class="nl">message</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">body</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span>
-<span class="p">}</span>
+<div class="highlight highlight-swift"><pre>public <span class="pl-st">protocol</span> LoggerDelegate {
+    <span class="pl-st">func</span> <span class="pl-en">logger</span>(logger: Logger, didLog message: <span class="pl-s3">String</span>, body: <span class="pl-s3">String</span>)
+}
 
-<span class="k">var</span> <span class="nl">loggerDelegate</span><span class="p">:</span> <span class="n">LoggerDelegate</span><span class="o">?</span>
-<span class="n">loggerDelegate</span> <span class="o">=</span> <span class="p">...</span>
-<span class="k">let</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">(</span><span class="nl">tag</span><span class="p">:</span> <span class="n">tag</span><span class="p">,</span> <span class="nl">delegate</span><span class="p">:</span> <span class="n">loggerDelegate</span><span class="o">!</span><span class="p">)</span>
-
+<span class="pl-st">var</span> loggerDelegate: LoggerDelegate?
+loggerDelegate <span class="pl-k">=</span> <span class="pl-k">...</span>
+<span class="pl-st">let</span> logger <span class="pl-k">=</span> Logger(tag: tag, delegate: loggerDelegate<span class="pl-k">!</span>)
 </pre></div>
         </section>
 
