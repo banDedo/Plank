@@ -21,6 +21,11 @@ _Due to the current lack of [proper infrastructure](http://cocoapods.org) for Sw
 5. Expand the "Link Binary with Libraries" group, and add `Plank.framework`.
 6. Click on the `+` button at the top left of the panel and select "New Copy Files Phase". Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add `Plank.framework`.
 
+## Installation (Cocoapods pre-release)
+
+1. Add Plank as a line in your Podfile `pod 'Plank'`
+2. Run `pod install`
+3. Add `import Plank` to the file(s) that you wish the use it in.
 ## Usage
 
   Plank provides a hook to filter logs based on level.
@@ -33,7 +38,7 @@ logger.logWarning("This log should appear because it is at the minimum threshold
 logger.logInfo("This log shouldn't appear because it is set below minimum threshold.")
 ```
 
-Set the desired threshold log level, by default it is set to .Warn.  With this example all logs will be recorded.
+Set the desired threshold log level, by default it is set to .Warning.  With this example all logs will be recorded.
 ```swift
 logger.thresholdLevel = .Warning
 ```

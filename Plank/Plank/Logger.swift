@@ -189,14 +189,14 @@ public class Logger {
     // MARK:- Private shared
 
     private struct Shared {
-        static let bundleExecutableName: NSString = (NSBundle.mainBundle().infoDictionary?[kCFBundleExecutableKey] ?? "Unknown") as NSString
-        static let queue = dispatch_queue_create(Logger.queueName().UTF8String, DISPATCH_QUEUE_SERIAL)
+        static let bundleExecutableName = (Logger.bundle().infoDictionary?[kCFBundleExecutableKey] as? String) ?? "Unknown"
+        static let queue = dispatch_queue_create((Logger.queueName() as NSString).UTF8String, DISPATCH_QUEUE_SERIAL)
         static let dateFormatter: NSDateFormatter = Logger.dateFormatter();
     }
 
-    private class func queueName() -> NSString {
-        var bundleIdentifier = NSBundle.mainBundle().bundleIdentifier ?? "Unknown"
-        return ("\(NSBundle.mainBundle().bundleIdentifier).logging" as NSString)
+    private class func queueName() -> String {
+        var bundleIdentifier = bundle().bundleIdentifier ?? "Unknown"
+        return "\(bundleIdentifier).logging"
     }
     
     private class func dateFormatter() -> NSDateFormatter {
@@ -205,6 +205,10 @@ public class Logger {
         dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
         dateFormatter.dateFormat = "yyyy-dd-MM HH:mm:ss:SSS (z)"
         return dateFormatter
+    }
+    
+    private class func bundle() -> NSBundle {
+        return NSBundle(forClass: self)
     }
 }
 
