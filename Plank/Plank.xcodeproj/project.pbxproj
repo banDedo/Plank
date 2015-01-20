@@ -11,8 +11,6 @@
 		71244DC51A545C15002103BF /* BDSystemLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 71244DC31A545C15002103BF /* BDSystemLogger.m */; };
 		712D524C19D8F202004E4781 /* Plank.h in Headers */ = {isa = PBXBuildFile; fileRef = 712D524B19D8F202004E4781 /* Plank.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		712D526019D8F20D004E4781 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D525F19D8F20D004E4781 /* Logger.swift */; };
-		712D526619D8F258004E4781 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712D526519D8F258004E4781 /* Nimble.framework */; };
-		712D526819D8F25C004E4781 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712D526719D8F25C004E4781 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +32,6 @@
 		712D525119D8F202004E4781 /* PlankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		712D525419D8F202004E4781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712D525F19D8F20D004E4781 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		712D526519D8F258004E4781 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
-		712D526719D8F25C004E4781 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Plank-euwrhosgbkabrxczkxquakynfklc/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +46,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				712D526819D8F25C004E4781 /* Quick.framework in Frameworks */,
-				712D526619D8F258004E4781 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,8 +110,6 @@
 		712D526919D8F25F004E4781 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				712D526719D8F25C004E4781 /* Quick.framework */,
-				712D526519D8F258004E4781 /* Nimble.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
