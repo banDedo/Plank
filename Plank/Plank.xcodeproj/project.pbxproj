@@ -11,11 +11,19 @@
 		71244DC51A545C15002103BF /* BDSystemLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 71244DC31A545C15002103BF /* BDSystemLogger.m */; };
 		712D524C19D8F202004E4781 /* Plank.h in Headers */ = {isa = PBXBuildFile; fileRef = 712D524B19D8F202004E4781 /* Plank.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		712D526019D8F20D004E4781 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D525F19D8F20D004E4781 /* Logger.swift */; };
-		712D526219D8F216004E4781 /* LoggerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D526119D8F216004E4781 /* LoggerSpec.swift */; };
-		712D526319D8F22E004E4781 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D525F19D8F20D004E4781 /* Logger.swift */; };
 		712D526619D8F258004E4781 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712D526519D8F258004E4781 /* Nimble.framework */; };
 		712D526819D8F25C004E4781 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712D526719D8F25C004E4781 /* Quick.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7102267A1A6D75E20089A112 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 712D523D19D8F202004E4781 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 712D524519D8F202004E4781;
+			remoteInfo = Plank;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		71244DC21A545C15002103BF /* BDSystemLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSystemLogger.h; sourceTree = "<group>"; };
@@ -26,7 +34,6 @@
 		712D525119D8F202004E4781 /* PlankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		712D525419D8F202004E4781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712D525F19D8F20D004E4781 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		712D526119D8F216004E4781 /* LoggerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerSpec.swift; sourceTree = "<group>"; };
 		712D526519D8F258004E4781 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		712D526719D8F25C004E4781 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Plank-euwrhosgbkabrxczkxquakynfklc/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,7 +100,6 @@
 		712D525219D8F202004E4781 /* PlankTests */ = {
 			isa = PBXGroup;
 			children = (
-				712D526119D8F216004E4781 /* LoggerSpec.swift */,
 				712D525319D8F202004E4781 /* Supporting Files */,
 			);
 			path = PlankTests;
@@ -160,6 +166,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7102267B1A6D75E20089A112 /* PBXTargetDependency */,
 			);
 			name = PlankTests;
 			productName = PlankTests;
@@ -232,12 +239,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				712D526219D8F216004E4781 /* LoggerSpec.swift in Sources */,
-				712D526319D8F22E004E4781 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7102267B1A6D75E20089A112 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 712D524519D8F202004E4781 /* Plank */;
+			targetProxy = 7102267A1A6D75E20089A112 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		712D525719D8F202004E4781 /* Debug */ = {
