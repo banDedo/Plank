@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Plank'
-  s.version = '1.0.0'
+  s.version = '1.0.2'
   s.license = 'Apache 2.0'
   s.summary = 'Swift Logger'
   s.homepage = 'https://github.com/banDedo/Plank'

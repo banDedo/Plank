@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol LoggerDelegate {
+@objc public protocol LoggerDelegate {
     func logger(logger: Logger, didLog message: String, body: String)
 }
 
-public class Logger {
+public class Logger: NSObject {
     // MARK:- Public properties
     
     /// Toggle to enable/disable logging.
@@ -42,6 +42,7 @@ public class Logger {
     public init(tag: NSString, delegate: LoggerDelegate? = nil) {
         self.tag = tag
         self.delegate = delegate
+        super.init()
     }
 
     // MARK:- Level enumeration
