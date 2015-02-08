@@ -14,6 +14,9 @@ import Foundation
 
 public class Logger: NSObject {
     // MARK:- Public properties
+
+    /// Tag associated with the logger, useful in visually filtering logs.
+    lazy public var tag: String = ""
     
     /// Toggle to enable/disable logging.
     public var enabled = true
@@ -23,6 +26,16 @@ public class Logger: NSObject {
     
     /// Messages that fall below the threshold level will not be logged.
     public var thresholdLevel: Level = .Warning
+
+    /// Primitive threshold level when not able to deal with Swift.
+    public var primitiveThresholdLevel: Int {
+        get {
+            return thresholdLevel.rawValue
+        }
+        set {
+            thresholdLevel = Level(rawValue: primitiveThresholdLevel) ?? .Verbose
+        }
+    }
     
     /// By default logs are asynchronous but can be performed synchronously.  This property can be used to change this behavior.
     public var synchronous: Bool = false
@@ -30,20 +43,8 @@ public class Logger: NSObject {
     /// Assignable closure that allows caller to set the format of logged messages.  The closure should return the formatted string that one wishes to log based on the passed parameters.
     public var formatter: ((message: String, tag: String, levelString: String, function: String, file: String, line: Int) -> String)?
 
-    // MARK:- Cleanup/Initialization
-
-    /**
-       Default constructor for class
-    
-       :param: tag A tag that is attached to logs output by this instance
-       :param: delegate Fields delegate callbacks for this instance
-       :returns: A Plank logger instance.
-    */
-    public init(tag: NSString, delegate: LoggerDelegate? = nil) {
-        self.tag = tag
-        self.delegate = delegate
-        super.init()
-    }
+    /// Delegate to the logger.
+    public weak var delegate: LoggerDelegate?
 
     // MARK:- Level enumeration
 
@@ -120,10 +121,7 @@ public class Logger: NSObject {
     }
     
     // MARK:- Private properties
-
-    private let delegate: LoggerDelegate?
     
-    private var tag: NSString
     private let queue = Shared.queue
 
     private lazy var systemLogger: BDSystemLogger = {
