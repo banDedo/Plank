@@ -33,7 +33,7 @@ public class Logger: NSObject {
             return thresholdLevel.rawValue
         }
         set {
-            thresholdLevel = Level(rawValue: primitiveThresholdLevel) ?? .Verbose
+            thresholdLevel = Level(rawValue: newValue) ?? .Verbose
         }
     }
     
