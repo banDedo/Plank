@@ -15,9 +15,6 @@ import Foundation
 public class Logger: NSObject {
     // MARK:- Public properties
 
-    /// Tag associated with the logger, useful in visually filtering logs.
-    lazy public var tag: String = ""
-    
     /// Toggle to enable/disable logging.
     public var enabled = true
     
@@ -26,16 +23,6 @@ public class Logger: NSObject {
     
     /// Messages that fall below the threshold level will not be logged.
     public var thresholdLevel: Level = .Warning
-
-    /// Primitive threshold level when not able to deal with Swift.
-    public var primitiveThresholdLevel: Int {
-        get {
-            return thresholdLevel.rawValue
-        }
-        set {
-            thresholdLevel = Level(rawValue: newValue) ?? .Verbose
-        }
-    }
     
     /// By default logs are asynchronous but can be performed synchronously.  This property can be used to change this behavior.
     public var synchronous: Bool = false
@@ -45,6 +32,23 @@ public class Logger: NSObject {
 
     /// Delegate to the logger.
     public weak var delegate: LoggerDelegate?
+
+    // MARK:- Intialization
+    
+    /**
+        Default constructor for class
+    
+        :param: tag A tag that is attached to logs output by this instance
+        :param: applicationName Name of appliction, useful in visually filtering logs.
+        :param: delegate Fields delegate callbacks for this instance
+        :returns: A Plank logger instance.
+    */
+    init(tag aTag: String, applicationName anApplicationName: String, delegate aDelegate: LoggerDelegate? = nil) {
+        tag = aTag
+        applicationName = anApplicationName
+        delegate = aDelegate
+        super.init()
+    }
 
     // MARK:- Level enumeration
 
@@ -86,8 +90,8 @@ public class Logger: NSObject {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    public func logError(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
-        log(message, .Error, completion, function, file, line)
+    public func logError(message: String?, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+        log(message, .Error, function, file, line)
     }
     
     /**
@@ -96,8 +100,8 @@ public class Logger: NSObject {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    public func logWarning(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
-        log(message, .Warning, completion, function, file, line)
+    public func logWarning(message: String?, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+        log(message, .Warning, function, file, line)
     }
     
     /**
@@ -106,8 +110,8 @@ public class Logger: NSObject {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    public func logInfo(message: String?, _ completion: (() -> ())? = nil, function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
-        log(message, .Info, completion, function, file, line)
+    public func logInfo(message: String?, function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+        log(message, .Info, function, file, line)
     }
     
     /**
@@ -116,8 +120,8 @@ public class Logger: NSObject {
        :param: message Message to log
        :param: completion Closure that fires after log is complete.  This will be fired on the logging queue.
     */
-    public func logVerbose(message: String?, _ completion: (() -> ())? = nil, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
-        log(message, .Verbose, completion, function, file, line)
+    public func logVerbose(message: String?, _ function: String = __FUNCTION__, _ file: String = __FILE__, _ line: Int = __LINE__) {
+        log(message, .Verbose, function, file, line)
     }
     
     // MARK:- Private properties
@@ -130,7 +134,10 @@ public class Logger: NSObject {
     
     // MARK:- Private logging
 
-    private func log(message: String?, _ level: Level, _ completion: (() -> ())? = nil, _ function: String, _ file: String, _ line: Int) {
+    private var tag: String
+    private var applicationName: String
+
+    private func log(message: String?, _ level: Level, _ function: String, _ file: String, _ line: Int) {
         if !self.shouldLog(tag, level) {
             return
         }
@@ -147,10 +154,6 @@ public class Logger: NSObject {
             
             if self.delegate != nil {
                 self.delegate?.logger(self, didLog: formattedMessage, body: logText)
-            }
-            
-            if completion != nil {
-                completion!()
             }
         }
         
@@ -174,7 +177,9 @@ public class Logger: NSObject {
         if formattedFileName == nil {
             formattedFileName = file
         }
-        return "\(Shared.dateFormatter.stringFromDate(NSDate())) [\(Shared.bundleExecutableName)|Plank] [\(tag)|\(level)] [\(formattedFileName!) \(function):\(line.description)]\n\(message)\n"
+        
+        let logLabel = "[" + self.applicationName + "|Plank]"
+        return "\(Shared.dateFormatter.stringFromDate(NSDate())) [\(logLabel) [\(formattedFileName!) \(function):\(line.description)]\n\(message)\n"
     }
     
     private func shouldLog(tag: String?, _ level: Level) -> Bool {
@@ -188,7 +193,6 @@ public class Logger: NSObject {
     // MARK:- Private shared
 
     private struct Shared {
-        static let bundleExecutableName = (Logger.bundle().infoDictionary?[kCFBundleExecutableKey] as? String) ?? "Unknown"
         static let queue = dispatch_queue_create((Logger.queueName() as NSString).UTF8String, DISPATCH_QUEUE_SERIAL)
         static let dateFormatter: NSDateFormatter = Logger.dateFormatter();
     }
