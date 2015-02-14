@@ -43,7 +43,7 @@ public class Logger: NSObject {
         :param: delegate Fields delegate callbacks for this instance
         :returns: A Plank logger instance.
     */
-    init(tag aTag: String, applicationName anApplicationName: String, delegate aDelegate: LoggerDelegate? = nil) {
+    public init(tag aTag: String, applicationName anApplicationName: String, delegate aDelegate: LoggerDelegate? = nil) {
         tag = aTag
         applicationName = anApplicationName
         delegate = aDelegate
